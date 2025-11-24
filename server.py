@@ -8,11 +8,17 @@ def index():
     # When someone opens the site, redirect straight to the PDF
     return redirect(url_for('serve_pdf'))
 
-# --- Serve the PDF file ---
+# --- Serve the first PDF file ---
 @app.route("/pdf")
 def serve_pdf():
     # Opens the PDF directly in the browser (no forced download)
     return send_from_directory(".", "Iprochem_Kovkaz_LLC_Landing_Final.pdf")
+
+# --- Serve second PDF ---
+@app.route("/pdf2")
+def serve_pdf_2():
+    return send_from_directory(".", "Iprochem_Kovkaz_LLC_Landing_Final_H.pdf")
+
 
 # --- Main entry point ---
 if __name__ == "__main__":
